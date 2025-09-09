@@ -1,0 +1,98 @@
+---
+const calUrl = import.meta.env.PUBLIC_CAL_URL || "https://cal.com/southlike";
+---
+
+<section id="contato" class="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+  <div class="mx-auto max-w-2xl text-center">
+    <h2 class="text-3xl font-semibold tracking-tight sm:text-4xl">
+      Fale com a Southlike
+    </h2>
+    <p class="mt-4 text-neutral-300">
+      Conte sobre sua imobiliária e receba um diagnóstico gratuito com plano de
+      ação.
+    </p>
+  </div>
+  <form
+    method="post"
+    action="/api/lead"
+    class="mx-auto mt-10 w-full max-w-2xl space-y-6"
+    onsubmit="posthog?.capture('lead_submitted', { source: 'contact_form' })"
+  >
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+      <div>
+        <label class="block text-sm text-neutral-300">Nome</label>
+        <input
+          required
+          name="name"
+          autocomplete="name"
+          class="mt-2 w-full rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-2 text-sm text-neutral-100 placeholder-neutral-500 outline-none focus:border-neutral-700 focus:ring-2 focus:ring-purple-500/40"
+          placeholder="Seu nome"
+        />
+      </div>
+      <div>
+        <label class="block text-sm text-neutral-300">Email</label>
+        <input
+          required
+          type="email"
+          name="email"
+          autocomplete="email"
+          class="mt-2 w-full rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-2 text-sm text-neutral-100 placeholder-neutral-500 outline-none focus:border-neutral-700 focus:ring-2 focus:ring-purple-500/40"
+          placeholder="voce@empresa.com"
+        />
+      </div>
+      <div>
+        <label class="block text-sm text-neutral-300">Telefone/WhatsApp</label>
+        <input
+          name="phone"
+          autocomplete="tel"
+          class="mt-2 w-full rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-2 text-sm text-neutral-100 placeholder-neutral-500 outline-none focus:border-neutral-700 focus:ring-2 focus:ring-purple-500/40"
+          placeholder="(11) 99999-9999"
+        />
+      </div>
+      <div>
+        <label class="block text-sm text-neutral-300">Imobiliária</label>
+        <input
+          name="company"
+          class="mt-2 w-full rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-2 text-sm text-neutral-100 placeholder-neutral-500 outline-none focus:border-neutral-700 focus:ring-2 focus:ring-purple-500/40"
+          placeholder="Nome da empresa"
+        />
+      </div>
+    </div>
+    <div>
+      <label class="block text-sm text-neutral-300"
+        >Quantos imóveis sob gestão?</label
+      >
+      <select
+        name="inventorySize"
+        class="mt-2 w-full rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-2 text-sm text-neutral-100 outline-none focus:border-neutral-700 focus:ring-2 focus:ring-purple-500/40"
+      >
+        <option value="0-50">0–50</option>
+        <option value="51-200">51–200</option>
+        <option value="201-1000">201–1000</option>
+        <option value="1000+">1000+</option>
+      </select>
+    </div>
+    <div>
+      <label class="block text-sm text-neutral-300"
+        >Qual é seu principal objetivo?</label
+      >
+      <textarea
+        name="goal"
+        rows="4"
+        class="mt-2 w-full rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-2 text-sm text-neutral-100 placeholder-neutral-500 outline-none focus:border-neutral-700 focus:ring-2 focus:ring-purple-500/40"
+        placeholder="Ex.: Aumentar leads qualificados e reduzir o tempo de resposta"
+      ></textarea>
+    </div>
+    <input type="hidden" name="redirect" value={calUrl} />
+    <div class="flex items-center justify-between">
+      <p class="text-xs text-neutral-500">
+        Ao enviar, você concorda com nossa Política de Privacidade.
+      </p>
+      <button
+        type="submit"
+        class="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-purple-500 to-indigo-500 px-6 py-3 text-sm font-medium text-white shadow hover:from-purple-400 hover:to-indigo-400"
+        >Enviar e agendar</button
+      >
+    </div>
+  </form>
+</section>
