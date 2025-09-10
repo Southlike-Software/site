@@ -1,1 +1,17 @@
 @import "tailwindcss";
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+@supports (-webkit-touch-callout: none) {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --safe-bottom: env(safe-area-inset-bottom);
+  }
+}

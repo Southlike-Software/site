@@ -1,0 +1,28 @@
+---
+const rows = [
+  { label: "Valor Regular (2025)", value: "R$ 12.000/mês" },
+  { label: "Valor Founding Partner", value: "R$ 3.500/mês" },
+  { label: "Economia Anual", value: "R$ 102.000" },
+  { label: "Taxa de Implementação", value: "R$ 2.000 (isenta esta semana)" },
+];
+---
+
+<section class="mx-auto max-w-7xl px-6 pb-16 pt-16 lg:px-8">
+  <div class="mx-auto max-w-3xl text-center">
+    <h2 class="text-3xl font-semibold tracking-tight sm:text-4xl">Estrutura de Investimento</h2>
+  </div>
+  <div class="mx-auto mt-8 max-w-3xl overflow-hidden rounded-lg border border-neutral-800 bg-neutral-900/60">
+    <div class="divide-y divide-neutral-800">
+      {rows.map((r) => (
+        <div class="flex items-center justify-between px-6 py-4 text-sm">
+          <span class="text-neutral-300">{r.label}</span>
+          <span class="font-medium">{r.value}</span>
+        </div>
+      ))}
+    </div>
+    <div class="px-6 py-4 text-sm text-neutral-300">
+      Benefício Vitalício: Founding Partners mantêm o valor especial permanentemente, enquanto futuros clientes pagarão o valor integral.
+    </div>
+  </div>
+</section>
+

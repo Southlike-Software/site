@@ -1,0 +1,30 @@
+---
+const bullets = [
+  "Implementação personalizada de IA para resposta instantânea de leads",
+  "Acesso direto ao fundador por 90 dias via WhatsApp",
+  "Desenvolvimento conjunto de funcionalidades específicas para seu negócio",
+  "Preço de founding partner vitalício (70% abaixo do valor de mercado)",
+  "Prioridade absoluta em suporte e novas implementações",
+];
+---
+
+<section class="mx-auto max-w-7xl px-6 pb-16 pt-16 lg:px-8">
+  <div class="mx-auto max-w-3xl text-center">
+    <h2 class="text-3xl font-semibold tracking-tight sm:text-4xl">O Programa Founding Partner</h2>
+    <p class="mt-3 text-neutral-300">Uma Parceria Estratégica Exclusiva</p>
+  </div>
+  <div class="mx-auto mt-8 max-w-3xl rounded-lg border border-neutral-800 bg-neutral-900/60 p-6">
+    <p class="text-sm text-neutral-300">
+      Estamos selecionando três imobiliárias líderes em Porto Alegre para uma parceria de desenvolvimento conjunto. Como Founding Partner, você receberá:
+    </p>
+    <ul class="mt-4 space-y-3 text-sm text-neutral-300">
+      {bullets.map((b) => (
+        <li class="flex gap-3">
+          <span class="text-purple-400">•</span>
+          <span>{b}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+

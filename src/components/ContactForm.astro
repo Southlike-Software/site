@@ -2,15 +2,12 @@
 const calUrl = import.meta.env.PUBLIC_CAL_URL || "https://cal.com/southlike";
 ---
 
-<section id="contato" class="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+<section id="contato" class="mx-auto max-w-7xl px-6 pb-28 pt-16 lg:px-8">
   <div class="mx-auto max-w-2xl text-center">
     <h2 class="text-3xl font-semibold tracking-tight sm:text-4xl">
-      Fale com a Southlike
+      Solicite Sua Análise Estratégica Gratuita
     </h2>
-    <p class="mt-4 text-neutral-300">
-      Conte sobre sua imobiliária e receba um diagnóstico gratuito com plano de
-      ação.
-    </p>
+    <p class="mt-4 text-neutral-300">Retorno garantido em até 2 horas úteis via WhatsApp</p>
   </div>
   <form
     method="post"
@@ -20,7 +17,7 @@ const calUrl = import.meta.env.PUBLIC_CAL_URL || "https://cal.com/southlike";
   >
     <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
       <div>
-        <label class="block text-sm text-neutral-300">Nome</label>
+        <label class="block text-sm text-neutral-300">Nome Completo*</label>
         <input
           required
           name="name"
@@ -30,68 +27,59 @@ const calUrl = import.meta.env.PUBLIC_CAL_URL || "https://cal.com/southlike";
         />
       </div>
       <div>
-        <label class="block text-sm text-neutral-300">Email</label>
+        <label class="block text-sm text-neutral-300">Imobiliária*</label>
         <input
           required
-          type="email"
-          name="email"
-          autocomplete="email"
-          class="mt-2 w-full rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-2 text-sm text-neutral-100 placeholder-neutral-500 outline-none focus:border-neutral-700 focus:ring-2 focus:ring-purple-500/40"
-          placeholder="voce@empresa.com"
-        />
-      </div>
-      <div>
-        <label class="block text-sm text-neutral-300">Telefone/WhatsApp</label>
-        <input
-          name="phone"
-          autocomplete="tel"
-          class="mt-2 w-full rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-2 text-sm text-neutral-100 placeholder-neutral-500 outline-none focus:border-neutral-700 focus:ring-2 focus:ring-purple-500/40"
-          placeholder="(11) 99999-9999"
-        />
-      </div>
-      <div>
-        <label class="block text-sm text-neutral-300">Imobiliária</label>
-        <input
           name="company"
           class="mt-2 w-full rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-2 text-sm text-neutral-100 placeholder-neutral-500 outline-none focus:border-neutral-700 focus:ring-2 focus:ring-purple-500/40"
           placeholder="Nome da empresa"
         />
       </div>
+      <div>
+        <label class="block text-sm text-neutral-300">WhatsApp (com DDD)*</label>
+        <input
+          required
+          name="phone"
+          autocomplete="tel"
+          class="mt-2 w-full rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-2 text-sm text-neutral-100 placeholder-neutral-500 outline-none focus:border-neutral-700 focus:ring-2 focus:ring-purple-500/40"
+          placeholder="(51) 99999-9999"
+        />
+      </div>
+      <div>
+        <label class="block text-sm text-neutral-300">Volume mensal de leads*</label>
+        <select
+          required
+          name="leadVolume"
+          class="mt-2 w-full rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-2 text-sm text-neutral-100 outline-none focus:border-neutral-700 focus:ring-2 focus:ring-purple-500/40"
+        >
+          <option value="0-30">0–30</option>
+          <option value="31-100">31–100</option>
+          <option value="101-300">101–300</option>
+          <option value="300+">300+</option>
+        </select>
+      </div>
     </div>
     <div>
-      <label class="block text-sm text-neutral-300"
-        >Quantos imóveis sob gestão?</label
-      >
+      <label class="block text-sm text-neutral-300">Tempo médio de resposta atual*</label>
       <select
-        name="inventorySize"
+        required
+        name="avgResponseTime"
         class="mt-2 w-full rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-2 text-sm text-neutral-100 outline-none focus:border-neutral-700 focus:ring-2 focus:ring-purple-500/40"
       >
-        <option value="0-50">0–50</option>
-        <option value="51-200">51–200</option>
-        <option value="201-1000">201–1000</option>
-        <option value="1000+">1000+</option>
+        <option value="<10m">Menos de 10 minutos</option>
+        <option value="10-60m">10–60 minutos</option>
+        <option value="1-6h">1–6 horas</option>
+        <option value="6-24h">6–24 horas</option>
+        <option value=">24h">Mais de 24 horas</option>
       </select>
     </div>
-    <div>
-      <label class="block text-sm text-neutral-300"
-        >Qual é seu principal objetivo?</label
-      >
-      <textarea
-        name="goal"
-        rows="4"
-        class="mt-2 w-full rounded-md border border-neutral-800 bg-neutral-900/60 px-3 py-2 text-sm text-neutral-100 placeholder-neutral-500 outline-none focus:border-neutral-700 focus:ring-2 focus:ring-purple-500/40"
-        placeholder="Ex.: Aumentar leads qualificados e reduzir o tempo de resposta"
-      ></textarea>
-    </div>
-    <input type="hidden" name="redirect" value={calUrl} />
-    <div class="flex items-center justify-between">
-      <p class="text-xs text-neutral-500">
-        Ao enviar, você concorda com nossa Política de Privacidade.
-      </p>
+    <input type="hidden" name="redirect" value="/obrigado" />
+    <div class="flex flex-col-reverse items-stretch justify-between gap-4 sm:flex-row sm:items-center">
+      <p class="text-xs text-neutral-500">Ao enviar, você concorda com nossa Política de Privacidade.</p>
       <button
         type="submit"
-        class="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-purple-500 to-indigo-500 px-6 py-3 text-sm font-medium text-white shadow hover:from-purple-400 hover:to-indigo-400"
-        >Enviar e agendar</button
+        class="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-purple-500 to-indigo-500 px-6 py-4 text-base font-medium text-white shadow hover:from-purple-400 hover:to-indigo-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 sm:px-6 sm:py-3 sm:text-sm"
+        >SOLICITAR ANÁLISE GRATUITA</button
       >
     </div>
   </form>

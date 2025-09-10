@@ -1,0 +1,74 @@
+---
+const text = import.meta.env.PUBLIC_ANNOUNCEMENT_TEXT || "Founding Partner: 70% OFF vitalício — apenas 2 vagas";
+const href = import.meta.env.PUBLIC_ANNOUNCEMENT_HREF || "#contato";
+const enabled = (import.meta.env.PUBLIC_ANNOUNCEMENT_ENABLED || "true").toLowerCase() !== "false";
+const deadline = import.meta.env.PUBLIC_ANNOUNCEMENT_DEADLINE || ""; // ISO string optional
+---
+
+{enabled && (
+  <div
+    class="hidden sm:block fixed inset-x-0 top-2 sm:top-3 z-50 pointer-events-none"
+    role="region"
+    aria-label="Aviso importante"
+  >
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="pointer-events-auto mx-3 sm:mx-auto sm:max-w-3xl rounded-full border border-purple-400/30 bg-gradient-to-r from-purple-600/20 via-purple-500/15 to-indigo-500/20 shadow-lg backdrop-blur supports-[backdrop-filter]:bg-purple-500/15 overflow-hidden">
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2 sm:gap-3 px-3 sm:px-4 py-2">
+          <a
+            href={href}
+            class="group flex w-full sm:w-auto flex-1 min-w-0 flex-col sm:flex-row items-start sm:items-center gap-1.5 sm:gap-2 text-left sm:text-center text-sm text-purple-200 hover:text-white sm:justify-center"
+            onclick="posthog?.capture('announcement_click', { href: this.getAttribute('href') })"
+          >
+            <span class="inline-flex h-6 shrink-0 items-center rounded-full bg-purple-400/20 px-2 text-xs font-medium text-purple-200 ring-1 ring-inset ring-purple-400/30">Urgente</span>
+            <span class="min-w-0 w-full sm:w-auto flex-1 whitespace-normal break-words leading-snug sm:truncate sm:whitespace-nowrap">{text}</span>
+            <span id="countdown" class="hidden shrink-0 rounded-full bg-purple-400/10 px-2 py-0.5 text-xs text-purple-100 ring-1 ring-inset ring-purple-400/30 sm:inline"></span>
+            <svg class="hidden h-4 w-4 opacity-70 transition group-hover:translate-x-0.5 sm:block" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l5 5a1 1 0 010 1.414l-5 5a1 1 0 11-1.414-1.414L13.586 10 10.293 6.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </a>
+          <button
+            type="button"
+            class="inline-flex h-8 w-8 shrink-0 items-center justify-center self-end sm:self-auto rounded-full text-purple-200/80 hover:bg-purple-400/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400"
+            aria-label="Fechar aviso"
+            onclick="(function(btn){localStorage.setItem('announcement:dismissed','1'); btn.closest('[role=region]')?.remove(); posthog?.capture('announcement_dismiss');})(this)"
+          >
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script>
+      try {
+        if (localStorage.getItem('announcement:dismissed') === '1') {
+          document.currentScript?.parentElement?.remove();
+        }
+        const deadlineStr = "${deadline}";
+        if (deadlineStr) {
+          const el = document.getElementById('countdown');
+          if (el) {
+            const target = new Date(deadlineStr).getTime();
+            if (!Number.isFinite(target)) {
+              el.remove();
+            } else if (window.matchMedia && window.matchMedia('(min-width: 640px)').matches) {
+              el.classList.remove('hidden');
+              let timer;
+              const update = () => {
+                const now = Date.now();
+                const diff = Math.max(0, target - now);
+                const h = Math.floor(diff / 36e5);
+                const m = Math.floor((diff % 36e5) / 6e4);
+                const s = Math.floor((diff % 6e4) / 1e3);
+                el.textContent = `${"${"}${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+                if (diff <= 0 && timer) clearInterval(timer);
+              };
+              update();
+              timer = setInterval(update, 1000);
+            }
+          }
+        }
+      } catch {}
+    </script>
+  </div>
+)}
+
+
