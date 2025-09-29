@@ -2,6 +2,7 @@
 import PostHog from "../components/posthog.astro";
 import MobileCTA from "../components/MobileCTA.astro";
 import AnnouncementBar from "../components/AnnouncementBar.astro";
+import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 
 const {
@@ -22,7 +23,9 @@ const robotsContent = noindex ? "noindex, nofollow" : "index, follow";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/png" href="/southlike-logo.png" />
+    <link rel="icon" type="image/svg+xml" href="/southlike-logo.png" />
+    <link rel="icon" href="/southlike-logo.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/southlike-logo.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -63,18 +66,19 @@ const robotsContent = noindex ? "noindex, nofollow" : "index, follow";
 
     <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
-  <body
-    class="h-full bg-neutral-950 text-neutral-100 antialiased selection:bg-purple-500/20"
-  >
-    <AnnouncementBar />
-    <a
-      href="#conteudo"
-      class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:rounded focus:bg-neutral-800 focus:px-3 focus:py-2"
-      >Pular para o conteúdo</a
-    >
-    <div id="conteudo" class="pb-20 sm:pb-0">
-      <slot />
+  <body class="min-h-screen bg-neutral-950 text-neutral-100 antialiased selection:bg-purple-500/20">
+    <div class="flex min-h-screen flex-col">
+      <AnnouncementBar />
+      <a
+        href="#conteudo"
+        class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:rounded focus:bg-neutral-800 focus:px-3 focus:py-2"
+        >Pular para o conteúdo</a
+      >
+      <main id="conteudo" class="flex-1 pb-20 sm:pb-0">
+        <slot />
+      </main>
+      <Footer />
+      <MobileCTA />
     </div>
-    <MobileCTA />
   </body>
 </html>

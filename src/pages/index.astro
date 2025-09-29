@@ -1,24 +1,126 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Hero from "../components/Hero.astro";
-import Qualification from "../components/Qualification.astro";
-import FoundingPartner from "../components/FoundingPartner.astro";
-import Guarantees from "../components/Guarantees.astro";
-import Timeline from "../components/Timeline.astro";
-import WhyThree from "../components/WhyThree.astro";
-import Investment from "../components/Investment.astro";
-import ContactForm from "../components/ContactForm.astro";
-import Footer from "../components/Footer.astro";
 ---
 
-<Layout>
-  <Hero />
-  <Qualification />
-  <FoundingPartner />
-  <Guarantees />
-  <Timeline />
-  <WhyThree />
-  <Investment />
-  <ContactForm />
-  <Footer />
+<Layout
+  title="Southlike Software — Produto, Automação e IA"
+  description="Construímos produtos, integrações e automações com IA para acelerar o crescimento do seu negócio. Conheça nossa abordagem, leia o blog e veja a oferta Founding Partner."
+>
+  <section class="mx-auto max-w-7xl px-6 pt-16 lg:px-8">
+    <nav
+      class="flex items-center justify-between rounded-lg border border-neutral-800 bg-neutral-900/50 px-4 py-2"
+    >
+      <a href="/" class="flex items-center gap-2">
+        <img
+          src="/southlike-logo.svg"
+          alt="Southlike"
+          class="h-6 w-6 brightness-0 invert"
+        />
+        <span class="text-base font-semibold tracking-tight text-white"
+          >Southlike</span
+        >
+      </a>
+      <div class="flex items-center gap-4">
+        <a
+          href="/about"
+          class="text-sm text-neutral-300 transition hover:text-white">Sobre</a
+        >
+        <a
+          href="/blog"
+          class="text-sm text-neutral-300 transition hover:text-white">Blog</a
+        >
+        <a
+          href="/automation"
+          class="text-sm text-neutral-300 transition hover:text-white"
+          >Automação</a
+        >
+      </div>
+    </nav>
+
+    <div class="relative mx-auto mt-16 max-w-3xl text-center">
+      <div class="pointer-events-none absolute inset-0 -z-10">
+        <div
+          class="absolute left-1/2 top-0 h-64 w-64 -translate-x-1/2 rounded-full bg-purple-600/20 blur-3xl filter animate-pulse"
+        >
+        </div>
+      </div>
+      <h1 class="text-3xl font-semibold tracking-tight sm:text-4xl">
+        Tecnologia que move seu crescimento
+      </h1>
+      <p class="mt-4 text-base text-neutral-300">
+        Somos uma agência de produto e automação. Entregamos sistemas sob
+        medida, integrações e IA aplicada ao que traz resultado. Sem ruído, com
+        foco total em ROI.
+      </p>
+      <div
+        class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row"
+      >
+        <a
+          href="/automation#founding-partner"
+          class="inline-flex items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium text-neutral-900 transition hover:opacity-90"
+          >Ver oferta Founding Partner</a
+        >
+        <a
+          href="/about"
+          class="inline-flex items-center justify-center rounded-md border border-neutral-700 bg-neutral-900 px-4 py-2 text-sm font-medium text-white transition hover:border-neutral-600"
+          >Conheça nossa abordagem</a
+        >
+      </div>
+    </div>
+
+    <div class="mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-6 sm:grid-cols-3">
+      <div
+        class="rounded-lg border border-neutral-800 bg-neutral-900/50 p-5 transition hover:border-neutral-700 hover:bg-neutral-900"
+      >
+        <h3 class="text-base font-semibold">Automação com IA</h3>
+        <p class="mt-2 text-sm text-neutral-300">
+          Captação, atendimento e agendamentos integrados ao seu CRM, do jeito
+          certo.
+        </p>
+      </div>
+      <div
+        class="rounded-lg border border-neutral-800 bg-neutral-900/50 p-5 transition hover:border-neutral-700 hover:bg-neutral-900"
+      >
+        <h3 class="text-base font-semibold">Produto sob medida</h3>
+        <p class="mt-2 text-sm text-neutral-300">
+          Aplicações e integrações feitas para escalar processos críticos do seu
+          negócio.
+        </p>
+      </div>
+      <div
+        class="rounded-lg border border-neutral-800 bg-neutral-900/50 p-5 transition hover:border-neutral-700 hover:bg-neutral-900"
+      >
+        <h3 class="text-base font-semibold">Transparência e parceria</h3>
+        <p class="mt-2 text-sm text-neutral-300">
+          Acesso direto ao fundador e entregas claras, com foco em resultado.
+        </p>
+      </div>
+    </div>
+
+    <div class="mx-auto mt-16 max-w-5xl">
+      <a
+        href="/automation"
+        class="block rounded-xl border border-neutral-800 bg-gradient-to-br from-neutral-900 to-neutral-950 p-6 transition hover:border-neutral-700 hover:shadow-[0_0_40px_-16px_rgba(168,85,247,0.35)]"
+      >
+        <div
+          class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center"
+        >
+          <div>
+            <p class="text-sm text-purple-400">Oferta principal</p>
+            <h3 class="mt-1 text-lg font-semibold">
+              Automação com IA para Imobiliárias
+            </h3>
+            <p class="mt-1 text-sm text-neutral-300">
+              Veja a página completa com detalhes, cronograma, garantias e
+              investimento.
+            </p>
+          </div>
+          <span
+            class="inline-flex items-center rounded-md bg-white px-4 py-2 text-sm font-medium text-neutral-900 transition hover:opacity-90"
+            >Explorar</span
+          >
+        </div>
+      </a>
+    </div>
+  </section>
 </Layout>
