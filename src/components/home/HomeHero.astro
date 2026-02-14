@@ -1,0 +1,37 @@
+---
+const calUrl = import.meta.env.PUBLIC_CAL_URL || "https://cal.com/southlike";
+---
+
+<section data-hero class="relative isolate overflow-hidden">
+  <div class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,rgba(6,182,212,0.20),transparent_45%),radial-gradient(ellipse_at_bottom_left,rgba(34,211,238,0.15),transparent_40%)]"></div>
+  <div class="mx-auto max-w-7xl px-6 pb-24 pt-24 sm:pt-32 lg:px-8">
+    <div class="mx-auto max-w-3xl text-center">
+      <h1 class="font-heading text-balance text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
+        IA que Acelera Seu Negócio
+      </h1>
+      <p class="mt-6 text-lg text-neutral-300">
+        Automatizamos processos, qualificamos leads e integramos IA ao seu fluxo de trabalho. Resultado real, sem complexidade.
+      </p>
+      <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <a
+          href={calUrl}
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-brand-500 to-brand-400 px-6 py-3 text-sm font-medium text-surface-950 shadow transition hover:from-brand-400 hover:to-brand-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
+          onclick="posthog?.capture('cta_click', { location: 'hero', cta: 'agendar_consulta' })"
+        >Agendar Consulta Gratuita</a>
+        <a
+          href="/servicos"
+          class="inline-flex items-center justify-center rounded-lg border border-neutral-700 bg-surface-900 px-6 py-3 text-sm font-medium text-white transition hover:border-neutral-600"
+        >Ver Serviços</a>
+      </div>
+      <div class="mx-auto mt-8 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-neutral-400">
+        <span>Consulta 100% gratuita</span>
+        <span class="text-neutral-700">&middot;</span>
+        <span>Suporte direto do fundador</span>
+        <span class="text-neutral-700">&middot;</span>
+        <span>Garantia de 30 dias</span>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,34 @@
+---
+import Container from "../ui/Container.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+import Card from "../ui/Card.astro";
+
+const items = [
+  {
+    title: "Parceiro Estratégico",
+    desc: "Não somos instaladores de chatbot. Auditamos sua operação, criamos um roadmap de IA e implementamos sistemas completos.",
+  },
+  {
+    title: "Sistemas Holísticos",
+    desc: "Captação + qualificação + CRM + dashboards. Tudo integrado, funcionando junto, gerando dados acionáveis.",
+  },
+  {
+    title: "Transparência Total",
+    desc: "Precificação honesta, comunicação direta, escopo claro. Você sempre sabe o que está sendo feito e por quê.",
+  },
+];
+---
+
+<Container class="py-20">
+  <SectionHeading
+    title="Nossa Abordagem"
+  />
+  <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
+    {items.map((item) => (
+      <Card>
+        <h3 class="font-heading text-lg font-medium">{item.title}</h3>
+        <p class="mt-2 text-sm text-neutral-300">{item.desc}</p>
+      </Card>
+    ))}
+  </div>
+</Container>

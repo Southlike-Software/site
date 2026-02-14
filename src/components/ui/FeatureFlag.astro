@@ -1,0 +1,9 @@
+---
+interface Props {
+  flag: string;
+}
+const { flag } = Astro.props;
+const enabled = (import.meta.env[flag] || "false") === "true";
+---
+
+{enabled && <slot />}

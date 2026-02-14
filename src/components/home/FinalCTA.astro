@@ -1,0 +1,24 @@
+---
+const calUrl = import.meta.env.PUBLIC_CAL_URL || "https://cal.com/southlike";
+---
+
+<section class="relative isolate overflow-hidden py-24">
+  <div class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgba(6,182,212,0.12),transparent_60%)]"></div>
+  <div class="mx-auto max-w-3xl px-6 text-center lg:px-8">
+    <h2 class="font-heading text-3xl font-semibold tracking-tight sm:text-4xl">
+      Pronto para Automatizar?
+    </h2>
+    <p class="mt-4 text-neutral-300">
+      Agende uma conversa gratuita de 20 minutos. Vamos entender seu negócio e mostrar onde IA pode gerar resultado imediato.
+    </p>
+    <div class="mt-8">
+      <a
+        href={calUrl}
+        target="_blank"
+        rel="noopener"
+        class="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-brand-500 to-brand-400 px-8 py-3 text-sm font-medium text-surface-950 shadow transition hover:from-brand-400 hover:to-brand-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
+        onclick="posthog?.capture('cta_click', { location: 'final_cta', cta: 'agendar' })"
+      >Agendar Consulta Gratuita</a>
+    </div>
+  </div>
+</section>

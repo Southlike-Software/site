@@ -1,31 +1,45 @@
 ---
 import Layout from "../layouts/Layout.astro";
+const calUrl = import.meta.env.PUBLIC_CAL_URL || "https://cal.com/southlike";
 ---
 
-<Layout title="Obrigado — Southlike" noindex={true}>
+<Layout title="Obrigado — Southlike Software" noindex={true}>
   <section class="mx-auto max-w-7xl px-6 pb-28 pt-24 lg:px-8">
     <div class="mx-auto max-w-3xl text-center">
-      <h1 class="text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
-        Obrigado pelo Interesse no Programa Founding Partner
-      </h1>
-      <p class="mt-6 text-neutral-300">Próximos Passos:</p>
-      <div class="mx-auto mt-6 max-w-2xl space-y-3 text-sm text-neutral-300">
-        <div>• Você receberá uma mensagem no WhatsApp em até 2 horas</div>
-        <div>• Agendaremos uma conversa estratégica de 20 minutos</div>
-        <div>• Se houver alinhamento, iniciamos a implementação esta semana</div>
+      <div class="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-brand-500/10 ring-1 ring-brand-500/20">
+        <svg class="h-8 w-8 text-brand-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+        </svg>
       </div>
-      <p class="mt-6 text-neutral-300">
-        Enquanto isso, considere:
-        <span class="italic">“Quantos negócios sua imobiliária perde mensalmente por não responder leads fora do horário comercial?”</span>
-      </p>
-      <p class="mt-6 text-neutral-300">
-        Para acelerar, envie uma mensagem direta: WhatsApp: <a href="https://wa.me/5551999999999" class="text-purple-400 underline">(51) 99999-9999</a>
-      </p>
+      <h1 class="font-heading text-balance text-4xl font-semibold tracking-tight sm:text-5xl">
+        Obrigado pelo Contato
+      </h1>
+      <p class="mt-6 text-neutral-300">Próximos passos:</p>
+      <div class="mx-auto mt-6 max-w-2xl space-y-3 text-sm text-neutral-300">
+        <div class="flex items-center justify-center gap-2">
+          <svg class="h-4 w-4 text-brand-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+          Você receberá uma mensagem via WhatsApp em até 2 horas
+        </div>
+        <div class="flex items-center justify-center gap-2">
+          <svg class="h-4 w-4 text-brand-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+          Agendaremos uma conversa estratégica de 20 minutos
+        </div>
+        <div class="flex items-center justify-center gap-2">
+          <svg class="h-4 w-4 text-brand-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+          Se houver alinhamento, iniciamos a implementação
+        </div>
+      </div>
+      <div class="mt-8">
+        <p class="text-sm text-neutral-400">
+          Quer acelerar?
+          <a href={calUrl} target="_blank" rel="noopener" class="text-brand-400 transition hover:text-brand-300">
+            Agende direto pelo Cal.com
+          </a>
+        </p>
+      </div>
       <div class="mt-10">
-        <a href="/" class="text-sm text-neutral-400 underline">Voltar ao site</a>
+        <a href="/" class="text-sm text-neutral-400 underline transition hover:text-white">Voltar ao site</a>
       </div>
     </div>
   </section>
 </Layout>
-
-

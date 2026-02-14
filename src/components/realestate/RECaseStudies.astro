@@ -1,0 +1,24 @@
+---
+import Container from "../ui/Container.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+import Card from "../ui/Card.astro";
+---
+
+<Container class="py-20">
+  <SectionHeading
+    title="Estudos de Caso"
+    subtitle="Veja como imobiliárias transformaram suas operações."
+  />
+  <div class="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-2">
+    <Card>
+      <span class="text-xs text-brand-400">Em breve</span>
+      <h3 class="mt-2 font-heading text-lg font-medium">Caso de Sucesso #1</h3>
+      <p class="mt-2 text-sm text-neutral-400">Estudo de caso detalhado em produção.</p>
+    </Card>
+    <Card>
+      <span class="text-xs text-brand-400">Em breve</span>
+      <h3 class="mt-2 font-heading text-lg font-medium">Caso de Sucesso #2</h3>
+      <p class="mt-2 text-sm text-neutral-400">Estudo de caso detalhado em produção.</p>
+    </Card>
+  </div>
+</Container>

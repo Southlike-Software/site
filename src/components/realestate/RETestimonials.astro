@@ -1,0 +1,40 @@
+---
+import Container from "../ui/Container.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+
+const testimonials = [
+  {
+    quote: "Multiplicamos por 3 o número de visitas agendadas em 60 dias. Atendimento 24/7 fez toda a diferença.",
+    name: "Mariana Alves",
+    role: "Diretora Comercial, Vitta Imóveis",
+  },
+  {
+    quote: "Integração com nosso CRM foi tranquila. A equipe agora foca no fechamento, não no operacional.",
+    name: "Carlos Gonçalves",
+    role: "Gerente de Vendas, Horizonte Brokers",
+  },
+  {
+    quote: "Relatórios claros e métricas acionáveis. Finalmente entendemos onde perdíamos leads.",
+    name: "Fernanda Rocha",
+    role: "COO, Vila Real",
+  },
+];
+---
+
+<Container class="py-20">
+  <SectionHeading
+    title="Resultados que Inspiram Confiança"
+    subtitle="Empresas reais, ganhos reais."
+  />
+  <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {testimonials.map((t) => (
+      <figure class="rounded-xl border border-neutral-800 bg-surface-900/60 p-6">
+        <blockquote class="text-sm text-neutral-300">&ldquo;{t.quote}&rdquo;</blockquote>
+        <figcaption class="mt-4 text-sm">
+          <div class="font-medium">{t.name}</div>
+          <div class="text-neutral-400">{t.role}</div>
+        </figcaption>
+      </figure>
+    ))}
+  </div>
+</Container>

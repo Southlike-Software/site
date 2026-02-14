@@ -1,0 +1,40 @@
+---
+import Container from "../ui/Container.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+
+const steps = [
+  {
+    num: "01",
+    title: "Conversa",
+    desc: "Entendemos seu negócio, processos e objetivos em uma consulta gratuita.",
+  },
+  {
+    num: "02",
+    title: "Diagnóstico",
+    desc: "Mapeamos oportunidades de automação e criamos um plano de implementação.",
+  },
+  {
+    num: "03",
+    title: "Implementação",
+    desc: "Construímos, integramos e entregamos — com suporte contínuo.",
+  },
+];
+---
+
+<Container class="py-20">
+  <SectionHeading
+    title="Como Funciona"
+    subtitle="Três etapas para transformar sua operação com IA."
+  />
+  <div class="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-8 sm:grid-cols-3">
+    {steps.map((step) => (
+      <div class="text-center">
+        <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-brand-500/10 text-sm font-bold text-brand-400 ring-1 ring-brand-500/20">
+          {step.num}
+        </div>
+        <h3 class="mt-4 font-heading text-lg font-medium">{step.title}</h3>
+        <p class="mt-2 text-sm text-neutral-300">{step.desc}</p>
+      </div>
+    ))}
+  </div>
+</Container>

@@ -7,6 +7,8 @@ import vercel from '@astrojs/vercel';
 
 import sitemap from '@astrojs/sitemap';
 
+import mdx from '@astrojs/mdx';
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
@@ -19,8 +21,12 @@ export default defineConfig({
     },
   }),
   integrations: [
+    mdx(),
     sitemap({
-      filter: (page) => !page.includes('/obrigado')
+      filter: (page) =>
+        !page.includes('/obrigado') &&
+        !page.includes('/automation') &&
+        !page.includes('/about')
     })
   ]
 });

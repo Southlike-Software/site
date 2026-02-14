@@ -1,0 +1,50 @@
+---
+const year = new Date().getFullYear();
+const cnpj = "57.275.035/0001-89";
+---
+
+<footer class="border-t border-neutral-800/50 bg-surface-950">
+  <div class="mx-auto max-w-7xl px-6 py-12 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 sm:grid-cols-3">
+      <!-- Brand -->
+      <div>
+        <a href="/" class="flex items-center gap-2">
+          <img src="/southlike-logo.svg" alt="Southlike" class="h-6 w-6 brightness-0 invert" />
+          <span class="font-heading text-base font-semibold text-white">Southlike Software</span>
+        </a>
+        <p class="mt-3 text-sm text-neutral-400">
+          Automação inteligente com IA para empresas que querem crescer.
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div>
+        <h3 class="text-sm font-medium text-white">Navegação</h3>
+        <ul class="mt-3 space-y-2 text-sm text-neutral-400">
+          <li><a href="/servicos" class="transition hover:text-white">Serviços</a></li>
+          <li><a href="/automacao-para-imobiliarias" class="transition hover:text-white">Imobiliárias</a></li>
+          <li><a href="/blog" class="transition hover:text-white">Blog</a></li>
+          <li><a href="/sobre" class="transition hover:text-white">Sobre</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h3 class="text-sm font-medium text-white">Contato</h3>
+        <ul class="mt-3 space-y-2 text-sm text-neutral-400">
+          <li>Porto Alegre, RS — Brasil</li>
+          <li>
+            <a href="mailto:contato@southlikesoftware.com" class="transition hover:text-white">
+              contato@southlikesoftware.com
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-10 flex flex-col items-center justify-between gap-2 border-t border-neutral-800/50 pt-6 text-xs text-neutral-500 sm:flex-row">
+      <span>&copy; {year} Southlike Software. Todos os direitos reservados.</span>
+      <span>CNPJ {cnpj}</span>
+    </div>
+  </div>
+</footer>

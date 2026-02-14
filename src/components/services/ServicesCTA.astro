@@ -1,0 +1,26 @@
+---
+const calUrl = import.meta.env.PUBLIC_CAL_URL || "https://cal.com/southlike";
+---
+
+<section class="py-20">
+  <div class="mx-auto max-w-3xl px-6 text-center lg:px-8">
+    <h2 class="font-heading text-3xl font-semibold tracking-tight sm:text-4xl">
+      Como Começar
+    </h2>
+    <p class="mt-4 text-neutral-300">
+      Começamos com uma consulta gratuita para entender suas necessidades. A partir disso, criamos um plano personalizado com escopo e investimento claros — sem surpresas.
+    </p>
+    <div class="mt-4 text-sm text-neutral-400">
+      <p>Consulta gratuita &rarr; Diagnóstico personalizado &rarr; Proposta com escopo fixo &rarr; Implementação</p>
+    </div>
+    <div class="mt-8">
+      <a
+        href={calUrl}
+        target="_blank"
+        rel="noopener"
+        class="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-brand-500 to-brand-400 px-8 py-3 text-sm font-medium text-surface-950 shadow transition hover:from-brand-400 hover:to-brand-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400"
+        onclick="posthog?.capture('cta_click', { location: 'services_cta', cta: 'agendar' })"
+      >Agendar Consulta Gratuita</a>
+    </div>
+  </div>
+</section>

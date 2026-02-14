@@ -1,0 +1,56 @@
+---
+import Container from "../ui/Container.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+import Card from "../ui/Card.astro";
+
+const items = [
+  {
+    title: "Captação omnicanal",
+    desc: "Formulários, WhatsApp, anúncios e site — tudo entra no funil automaticamente.",
+    icon: "M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1",
+  },
+  {
+    title: "Qualificação com IA",
+    desc: "Perguntas inteligentes para entender interesse, perfil e urgência do lead.",
+    icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z",
+  },
+  {
+    title: "Integração com CRM",
+    desc: "Sincronize leads, status e tarefas com seu CRM atual.",
+    icon: "M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4",
+  },
+  {
+    title: "Agendamento automático",
+    desc: "Agenda visitas no seu calendário sem atrito.",
+    icon: "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z",
+  },
+  {
+    title: "Relatórios e métricas",
+    desc: "Acompanhe taxas de conversão e gargalos em tempo real.",
+    icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z",
+  },
+  {
+    title: "Segurança e conformidade",
+    desc: "Boas práticas de LGPD e armazenamento seguro.",
+    icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
+  },
+];
+---
+
+<Container class="py-20">
+  <SectionHeading
+    title="Feito para Resultados"
+    subtitle="Recursos pensados para imobiliárias que precisam escalar sem perder qualidade."
+  />
+  <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {items.map((item) => (
+      <Card hover>
+        <svg class="h-8 w-8 text-brand-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d={item.icon} />
+        </svg>
+        <h3 class="mt-3 font-heading text-lg font-medium">{item.title}</h3>
+        <p class="mt-2 text-sm text-neutral-300">{item.desc}</p>
+      </Card>
+    ))}
+  </div>
+</Container>

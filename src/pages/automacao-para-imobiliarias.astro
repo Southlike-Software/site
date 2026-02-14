@@ -1,0 +1,50 @@
+---
+import Layout from "../layouts/Layout.astro";
+import REHero from "../components/realestate/REHero.astro";
+import REProblems from "../components/realestate/REProblems.astro";
+import RESolution from "../components/realestate/RESolution.astro";
+import REFeatures from "../components/realestate/REFeatures.astro";
+import REVideoSection from "../components/realestate/REVideoSection.astro";
+import RETimeline from "../components/realestate/RETimeline.astro";
+import REOffer from "../components/realestate/REOffer.astro";
+import REFoundingPartner from "../components/realestate/REFoundingPartner.astro";
+import REGuarantees from "../components/realestate/REGuarantees.astro";
+import RETestimonials from "../components/realestate/RETestimonials.astro";
+import RECaseStudies from "../components/realestate/RECaseStudies.astro";
+import REEbook from "../components/realestate/REEbook.astro";
+import LeadCaptureForm from "../components/forms/LeadCaptureForm.astro";
+import FeatureFlag from "../components/ui/FeatureFlag.astro";
+---
+
+<Layout
+  title="Automação com IA para Imobiliárias — Southlike Software"
+  description="Automatize captação, qualificação e agendamento de visitas com IA integrada ao seu CRM. Atendimento 24/7 via WhatsApp para imobiliárias."
+>
+  <REHero />
+  <REProblems />
+  <RESolution />
+  <REFeatures />
+
+  <FeatureFlag flag="PUBLIC_SHOW_VSL">
+    <REVideoSection />
+  </FeatureFlag>
+
+  <RETimeline />
+  <REOffer />
+  <REFoundingPartner />
+  <REGuarantees />
+
+  <FeatureFlag flag="PUBLIC_SHOW_TESTIMONIALS">
+    <RETestimonials />
+  </FeatureFlag>
+
+  <FeatureFlag flag="PUBLIC_SHOW_CASE_STUDIES">
+    <RECaseStudies />
+  </FeatureFlag>
+
+  <FeatureFlag flag="PUBLIC_SHOW_EBOOK">
+    <REEbook />
+  </FeatureFlag>
+
+  <LeadCaptureForm />
+</Layout>

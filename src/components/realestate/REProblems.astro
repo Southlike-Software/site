@@ -1,0 +1,40 @@
+---
+import Container from "../ui/Container.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+
+const problems = [
+  {
+    title: "Resposta lenta",
+    desc: "Leads esperam horas — ou dias — por uma resposta. Nesse tempo, já fecharam com a concorrência.",
+    icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
+  },
+  {
+    title: "Leads perdidos",
+    desc: "Fora do horário comercial, feriados e finais de semana, ninguém atende. Oportunidades evaporam.",
+    icon: "M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636",
+  },
+  {
+    title: "Trabalho manual",
+    desc: "Sua equipe gasta tempo em tarefas repetitivas: copiar dados, enviar mensagens padrão, atualizar planilhas.",
+    icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2",
+  },
+];
+---
+
+<Container class="py-20">
+  <SectionHeading
+    title="Problemas que Você Conhece"
+    subtitle="Se algum desses soa familiar, você está no lugar certo."
+  />
+  <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
+    {problems.map((p) => (
+      <div class="rounded-xl border border-red-500/10 bg-red-500/5 p-6">
+        <svg class="h-8 w-8 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d={p.icon} />
+        </svg>
+        <h3 class="mt-4 font-heading text-lg font-medium">{p.title}</h3>
+        <p class="mt-2 text-sm text-neutral-300">{p.desc}</p>
+      </div>
+    ))}
+  </div>
+</Container>

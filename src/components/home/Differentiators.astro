@@ -1,0 +1,41 @@
+---
+import Container from "../ui/Container.astro";
+import SectionHeading from "../ui/SectionHeading.astro";
+import Card from "../ui/Card.astro";
+
+const items = [
+  {
+    title: "Background Enterprise",
+    desc: "Engenheiro de software em sistemas mission-critical na ADP. A mesma disciplina aplicada ao seu negócio.",
+    icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
+  },
+  {
+    title: "Abordagem Holística",
+    desc: "Não instalamos chatbots. Criamos sistemas completos: captação + qualificação + CRM + dashboards.",
+    icon: "M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z",
+  },
+  {
+    title: "Código Próprio",
+    desc: "Sem dependência de plataformas no-code frágeis. Soluções construídas com código que você controla.",
+    icon: "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4",
+  },
+];
+---
+
+<Container class="py-20">
+  <SectionHeading
+    title="Por Que a Southlike"
+    subtitle="O que nos diferencia de outras agências."
+  />
+  <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
+    {items.map((item) => (
+      <Card>
+        <svg class="h-8 w-8 text-brand-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d={item.icon} />
+        </svg>
+        <h3 class="mt-4 font-heading text-lg font-medium">{item.title}</h3>
+        <p class="mt-2 text-sm text-neutral-300">{item.desc}</p>
+      </Card>
+    ))}
+  </div>
+</Container>
