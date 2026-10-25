@@ -1,7 +1,8 @@
 import type { APIRoute } from "astro";
 export const prerender = false;
 import { z } from "zod";
-import { getDb } from "../../lib/mongo";
+import { getConvex } from "../../lib/convex";
+import { api } from "../../../convex/_generated/api";
 
 const LeadSchema = z.object({
     name: z.string().min(1),
@@ -23,16 +24,13 @@ export const POST: APIRoute = async ({ request, redirect }) => {
             return new Response(JSON.stringify({ error: "Dados inválidos" }), { status: 400 });
         }
 
-        const db = await getDb();
-        const collection = db.collection("leads");
-        const now = new Date();
-        await collection.insertOne({
-            ...parsed.data,
-            createdAt: now,
-            userAgent: request.headers.get("user-agent"),
-            referer: request.headers.get("referer"),
-            ip: request.headers.get("x-forwarded-for") || undefined,
-            source: "website",
+        const { redirect: _redirect, ...lead } = parsed.data;
+        await getConvex().mutation(api.leads.create, {
+            ...lead,
+            secret: import.meta.env.LEADS_INGEST_SECRET,
+            userAgent: request.headers.get("user-agent") ?? undefined,
+            referer: request.headers.get("referer") ?? undefined,
+            ip: request.headers.get("x-forwarded-for") ?? undefined,
         });
 
         const url = parsed.data.redirect || "/obrigado";
