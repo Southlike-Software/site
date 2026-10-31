@@ -27,17 +27,18 @@ No lint or test scripts are configured.
 
 **Astro SSG/SSR hybrid** — most pages are statically generated; API routes use server-side rendering via the Vercel adapter.
 
-`ContactForm.astro` → POST to `/api/lead` → Zod validation → MongoDB insert → redirect to `/obrigado`
+`ContactForm.astro` → POST to `/api/lead` → Zod validation → Convex `leads:create` mutation (shared-secret guarded) → redirect to `/obrigado`
 
 The lead API captures metadata (user-agent, referer, IP, source, timestamp) alongside form fields (name, company, phone, leadVolume, avgResponseTime).
 
 ## Environment Variables
 
-Required in `.env` for local dev:
+Leads live in **Convex** (team `marcus-filipus`, project `southlike-site`); schema + functions in `convex/`.
+`bunx convex dev` writes `CONVEX_DEPLOYMENT`/`CONVEX_URL` to `.env.local`. Also needed (local + Vercel):
 
 ```
-MONGODB_URI=mongodb+srv://...
-MONGODB_DB=southlike          # optional, defaults to "southlike"
+CONVEX_URL=https://<deployment>.convex.cloud
+LEADS_INGEST_SECRET=...   # must match the Convex deployment env var of same name
 ```
 
 ## Conventions
