@@ -15,5 +15,7 @@ export default defineSchema({
         ip: v.optional(v.string()),
         // set when the lead is imported from the old MongoDB collection
         legacyCreatedAt: v.optional(v.number()),
-    }),
+        // set by the Discord bot once the lead is posted to Southlike Hub
+        notifiedAt: v.optional(v.number()),
+    }).index("by_notifiedAt", ["notifiedAt"]),
 });
