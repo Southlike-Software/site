@@ -1,6 +1,14 @@
 import { defineSchema, defineTable } from "convex/server";
 import { v } from "convex/values";
 
+export const leadStatus = v.union(
+    v.literal("novo"),
+    v.literal("contatado"),
+    v.literal("negociando"),
+    v.literal("ganho"),
+    v.literal("perdido"),
+);
+
 export default defineSchema({
     leads: defineTable({
         name: v.string(),
@@ -17,5 +25,9 @@ export default defineSchema({
         legacyCreatedAt: v.optional(v.number()),
         // set by the Discord bot once the lead is posted to Southlike Hub
         notifiedAt: v.optional(v.number()),
+        // forum post the bot opened for this lead in Southlike Hub #leads
+        discordThreadId: v.optional(v.string()),
+        // pipeline stage, changed from the Discord post's buttons; unset = novo
+        status: v.optional(leadStatus),
     }).index("by_notifiedAt", ["notifiedAt"]),
 });

@@ -1,5 +1,6 @@
 import { ConvexError, v } from "convex/values";
 import { mutation, query } from "./_generated/server";
+import { leadStatus } from "./schema";
 
 // Public mutation guarded by a shared secret so only the site's API route can insert.
 export const create = mutation({
@@ -40,9 +41,17 @@ export const unnotified = query({
 });
 
 export const markNotified = mutation({
-    args: { secret: v.string(), id: v.id("leads") },
-    handler: async (ctx, { secret, id }) => {
+    args: { secret: v.string(), id: v.id("leads"), discordThreadId: v.optional(v.string()) },
+    handler: async (ctx, { secret, id, discordThreadId }) => {
         assertBot(secret);
-        await ctx.db.patch(id, { notifiedAt: Date.now() });
+        await ctx.db.patch(id, { notifiedAt: Date.now(), discordThreadId });
+    },
+});
+
+export const setStatus = mutation({
+    args: { secret: v.string(), id: v.id("leads"), status: leadStatus },
+    handler: async (ctx, { secret, id, status }) => {
+        assertBot(secret);
+        await ctx.db.patch(id, { status });
     },
 });
